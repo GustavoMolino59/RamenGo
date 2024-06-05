@@ -4,6 +4,7 @@ import { InMemoryBrothsRepository } from "@/respositories/in-memory/in-memory-br
 import { InMemoryProteinsRepository } from "@/respositories/in-memory/in-memory-proteins-repository";
 import { BrothNotExistsError } from "../src/use-cases/errors/both-not-exist";
 import { ProteinNotExistsError } from "../src/use-cases/errors/protein-not-exist";
+import { ProblemMakeOrder } from "@/use-cases/errors/problem-make-order";
 
 
 
@@ -39,7 +40,7 @@ describe('Make a order use case', () => {
         const proteinId = protein.id
         const order = await sut.execute({brothId, proteinId})
         expect(order.image).toEqual(protein.name)
-        expect(order.description).toEqual(broth.description + ' and ' + protein.description + ' Ramen')
+        expect(order.description).toEqual(broth.name + ' and ' + protein.name + ' Ramen')
     });
     it('should not be able to get order with the incorrect params of broth', async () => {
         const broth = await brothsRepository.create({
@@ -60,7 +61,7 @@ describe('Make a order use case', () => {
         const proteinId = protein.id
         await expect(() =>
             sut.execute({brothId, proteinId}),
-          ).rejects.toBeInstanceOf(BrothNotExistsError)
+          ).rejects.toBeInstanceOf(ProblemMakeOrder)
     });
     it('should not be able to get order with the incorrect params of protein', async () => {
         const broth = await brothsRepository.create({
@@ -81,6 +82,6 @@ describe('Make a order use case', () => {
         const proteinId = 999
         await expect(() =>
             sut.execute({brothId, proteinId}),
-          ).rejects.toBeInstanceOf(ProteinNotExistsError)
+          ).rejects.toBeInstanceOf(ProblemMakeOrder)
     });
 });
