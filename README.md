@@ -33,9 +33,9 @@ Tabela de conteúdos
      * [Pré-requisitos](#pré-requisitos)
      * [Rodando a aplicação web (Servidor)](#user-content---rodando-o-back-end-servidor)
      * [Rodando a aplicação web (Front-End)](#user-content---rodando-o-front-end-servidor)
-* [Documentação API](#-documentação-api)
 * [Tecnologias](#-tecnologias)
 * [Organização](#-organização)
+* [Testes](#-testes)
 * [Autor](#-autor)
 <!--te-->
 
@@ -174,14 +174,10 @@ As seguintes ferramentas foram usadas na construção do projeto:
 > Veja o arquivo  [package.json](https://github.com/GustavoMolino59/RamenGo/blob/main/package.json)
 
 
-####**Web** 
+#### **Web** 
 
 A aplicação Web foi desenvolvida integralmente com HTML, CSS e JavaScript, sem a incorporação de bibliotecas externas. Dada a restrição quanto ao uso de frameworks, a abordagem adotada foi a construção de um framework próprio. Isto implica em replicar as funcionalidades típicas de frameworks front-end, como a criação de componentes utilizando JavaScript e a renderização individualizada destes componentes. Dessa forma, qualquer alteração na interface de usuário provoca a re-renderização apenas do componente afetado, otimizando a performance da aplicaçã
 
-### Documentação API
-<p align="center">
-  <a href="assets/Insomnia-Atech" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
-</p>
 
 ### Organização
 
@@ -192,6 +188,18 @@ O Sistema conta com 3 controllers, que são responsáveis por Orders, Broths e P
 
 Todo o sistema é testavel com testes unitários, um para cada caso de uso, e completamente desacoplado do restante do sistema, usando um banco de dados InMemory que testa apenas o respectivo caso de uso
 Banco de dados - Utiliza-se um banco de dados Postgree que está alocado no Render e localmente gera um conteiner docker de um banco de dados. O sistema se baseia no PRISMA para tratar das relações com o banco de dados
+
+
+#### **FrontEnd**
+O front End é organizado em componentes. Os componente são orquestados por uma função chamada renderComponents(), elá é responsável por guardar os componentes e renderiza-los conforme necessidade e/ou mudanças nele.
+Cada componente é responsável apenas pelas suas próprias funcionalidades, ou seja, fazem requisições e se adaptam conforme interação do usuário individualmente.
+Eles tem uma classe chamada Render() que se autoRenderiza cada vez que há necessidade devido a interação.
+
+A página inteira foi baseada no conceito de SPA(Single-Page Application), de modo que a mudança de tela não representa efetivamente uma mudaça de arquivo HTML e sim apenas uma renderização dos novos componentes via Javascript.
+
+Os conceitos utilizados são os mesmos dos frameworks como React e Vue, mas com nivel de abstração mais baixo devido a dificuldade de criar um componente inteiro do zero
+
+Foi criada também uma classe API que faz apenas os métodos GET e POST, que são necessários para o sistema. A API utiliza métodos nativos do Javascript como o fetch() e then()
 
 #### **Testes**
 
@@ -204,16 +212,6 @@ $ cd api
 $ npm run test
 ```
 
-#### **FrontEnd**
-O front End é organizado em componentes. Os componente são orquestados por uma função chamada renderComponents(), elá é responsável por guardar os componentes e renderiza-los conforme necessidade e/ou mudanças nele.
-Cada componente é responsável apenas pelas suas próprias funcionalidades, ou seja, fazem requisições e se adaptam conforme interação do usuário individualmente.
-Eles tem uma classe chamada Render() que se autoRenderiza cada vez que há necessidade devido a interação.
-
-A página inteira foi baseada no conceito de SPA(Single-Page Application), de modo que a mudança de tela não representa efetivamente uma mudaça de arquivo HTML e sim apenas uma renderização dos novos componentes via Javascript.
-
-Os conceitos utilizados são os mesmos dos frameworks como React e Vue, mas com nivel de abstração mais baixo devido a dificuldade de criar um componente inteiro do zero
-
-Foi criada também uma classe API que faz apenas os métodos GET e POST, que são necessários para o sistema. A API utiliza métodos nativos do Javascript como o fetch() e then()
 ### Autor
 ---
 Feito por Gustavo Molino 👋🏽 Entre em contato!
