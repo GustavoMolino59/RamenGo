@@ -15,7 +15,6 @@ export async function makeOrder(request:FastifyRequest, reply: FastifyReply) {
 
     
     const {brothId, proteinId} = createOrderSchema.parse(request.body)
-    console.log(brothId, proteinId)
     if(!brothId || ! proteinId){
         throw new MissingItemRequiredError()
     }

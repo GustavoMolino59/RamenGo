@@ -7,9 +7,10 @@
     "start": "node build/server.js",
     "build": "tsup src --out-dir build",
     "test": "vitest run",
+    "migrate": "npx prisma migrate dev",
     "test:watch": "vitest",
     "dev:docker-up": "docker-compose up -d",
-    "dev:migrate": "npx prisma migrate dev",
+    "dev:migrate-retry-win": "powershell -Command \"do { npm run migrate; if ($?) { break } else { echo 'Retrying migrate...'; Start-Sleep -Seconds 2 } } while ($true)\"",
     "dev:seed": "tsx utils/seeder.ts",
     "dev:start-dev": "tsx watch src/server.ts",
     "runningDev": "run-s  dev:*"

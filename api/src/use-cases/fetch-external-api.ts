@@ -16,7 +16,6 @@ export class FetchExternalApiUseCase{
     
 
     async execute({ apiKey }: FetchExternalApiRequest):Promise<FetchExternalApiResponse> {
-        console.log('---------------'+ apiKey)
         const response = await axios.post<OrderIdResponse>('https://api.tech.redventures.com.br/orders/generate-id', null, {
             headers: {
                 'x-api-key': apiKey
