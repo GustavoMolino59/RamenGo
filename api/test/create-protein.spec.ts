@@ -1,5 +1,5 @@
 import { InMemoryProteinsRepository } from "@/respositories/in-memory/in-memory-proteins-repository"
-import { CreateProteinUseCase } from "./create-proteins"
+import { CreateProteinUseCase } from "../src/use-cases/create-proteins"
 import { beforeEach, describe, expect, it } from "vitest"
 
 

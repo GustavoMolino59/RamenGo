@@ -1,7 +1,7 @@
 
 import { InMemoryBrothsRepository } from "@/respositories/in-memory/in-memory-broths-repository"
 import { beforeEach, describe, expect, it } from "vitest"
-import { CreateBrothUseCase } from "./create-broths"
+import { CreateBrothUseCase } from "../src/use-cases/create-broths"
 
 
 let brothRepository: InMemoryBrothsRepository

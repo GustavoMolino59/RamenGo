@@ -16,7 +16,7 @@ import { ProteinNotExistsError } from './use-cases/errors/protein-not-exist';
 export const app = fastify()
 console.log('passou aqui')
 app.register(cors, {
-  origin: 'http://localhost:5173', // Permitir requisições apenas de 'http://localhost:5173'
+  origin: env.BASE_URL, // Permitir requisições apenas de 'http://localhost:5173'
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Permitir apenas esses métodos
 });
 app.register(fastifyStatic, {

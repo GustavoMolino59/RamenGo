@@ -1,9 +1,9 @@
 import { beforeEach, describe, expect, it } from "vitest";
-import { MakeOrderUseCase } from "./make-order";
+import { MakeOrderUseCase } from "../src/use-cases/make-order";
 import { InMemoryBrothsRepository } from "@/respositories/in-memory/in-memory-broths-repository";
 import { InMemoryProteinsRepository } from "@/respositories/in-memory/in-memory-proteins-repository";
-import { BrothNotExistsError } from "./errors/both-not-exist";
-import { ProteinNotExistsError } from "./errors/protein-not-exist";
+import { BrothNotExistsError } from "../src/use-cases/errors/both-not-exist";
+import { ProteinNotExistsError } from "../src/use-cases/errors/protein-not-exist";
 
 
 

@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it } from "vitest";
-import { GetBrothsUseCase } from "./get-all-broths";
+import { GetBrothsUseCase } from "../src/use-cases/get-all-broths";
 import { InMemoryProteinsRepository } from "@/respositories/in-memory/in-memory-proteins-repository";
-import { GetProteinUseCase } from "./get-all-proteins";
+import { GetProteinUseCase } from "../src/use-cases/get-all-proteins";
 
 
 describe('Get all proteins Use Case', () => {

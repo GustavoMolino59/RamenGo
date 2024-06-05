@@ -17,8 +17,8 @@ export async function seed() {
         {
             name: 'Shoyu',
             description: 'The good old and traditional soy sauce',
-            imageActive: 'SaltActive.svg',
-            imageInactive: 'SaltInactive.svg',
+            imageActive: 'ShoyuActive.svg',
+            imageInactive: 'ShoyuInactive.svg',
             price: 10
         },
         {

@@ -1,6 +1,6 @@
 import { InMemoryBrothsRepository } from "@/respositories/in-memory/in-memory-broths-repository";
 import { beforeEach, describe, expect, it } from "vitest";
-import { GetBrothsUseCase } from "./get-all-broths";
+import { GetBrothsUseCase } from "../src/use-cases/get-all-broths";
 
 
 describe('Get all broths Use Case', () => {

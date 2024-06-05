@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it } from "vitest";
-import { FetchExternalApiUseCase } from "./fetch-external-api";
+import { FetchExternalApiUseCase } from "../src/use-cases/fetch-external-api";
 import {env} from '@/env'
-import { ErrorExternalApiError } from "./errors/error-external-api";
+import { ErrorExternalApiError } from "../src/use-cases/errors/error-external-api";
 
 
 
